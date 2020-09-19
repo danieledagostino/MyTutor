@@ -1,0 +1,60 @@
+insert into category(id, name, price, copies_in_stock, copies_sold) values(1, 'A', 25, 10, 0);
+insert into category(id, name, price, copies_in_stock, copies_sold) values(2, 'B', 20, 10, 0);
+insert into category(id, name, price, copies_in_stock, copies_sold) values(3, 'C', 23, 10, 0);
+insert into category(id, name, price, copies_in_stock, copies_sold) values(4, 'D', 30, 10, 0);
+insert into category(id, name, price, copies_in_stock, copies_sold) values(5, 'E', 27, 10, 0);
+
+insert into book(id, name, category_id) values(1, 'A_BBBBBBBBB', 1);
+insert into book(id, name, category_id) values(2, 'A_CCCCCCCCC', 1);
+insert into book(id, name, category_id) values(3, 'A_DDDDDDDDD', 1);
+insert into book(id, name, category_id) values(4, 'A_EEEEEEEEE', 1);
+insert into book(id, name, category_id) values(5, 'A_FFFFFFFFF', 1);
+insert into book(id, name, category_id) values(6, 'A_GGGGGGGGG', 1);
+insert into book(id, name, category_id) values(7, 'A_HHHHHHHHH', 1);
+insert into book(id, name, category_id) values(8, 'A_IIIIIIIII', 1);
+insert into book(id, name, category_id) values(9, 'A_LLLLLLLLL', 1);
+insert into book(id, name, category_id) values(10, 'A_MMMMMMMMM', 1);
+						 
+insert into book(id, name, category_id) values(11, 'B_BBBBBBBBB', 2);
+insert into book(id, name, category_id) values(12, 'B_CCCCCCCCC', 2);
+insert into book(id, name, category_id) values(13, 'B_DDDDDDDDD', 2);
+insert into book(id, name, category_id) values(14, 'B_EEEEEEEEE', 2);
+insert into book(id, name, category_id) values(15, 'B_FFFFFFFFF', 2);
+insert into book(id, name, category_id) values(16, 'B_GGGGGGGGG', 2);
+insert into book(id, name, category_id) values(17, 'B_HHHHHHHHH', 2);
+insert into book(id, name, category_id) values(18, 'B_IIIIIIIII', 2);
+insert into book(id, name, category_id) values(19, 'B_LLLLLLLLL', 2);
+insert into book(id, name, category_id) values(20, 'B_MMMMMMMMM', 2);
+						 
+insert into book(id, name, category_id) values(21, 'C_BBBBBBBBB', 3);
+insert into book(id, name, category_id) values(22, 'C_CCCCCCCCC', 3);
+insert into book(id, name, category_id) values(23, 'C_DDDDDDDDD', 3);
+insert into book(id, name, category_id) values(24, 'C_EEEEEEEEE', 3);
+insert into book(id, name, category_id) values(25, 'C_FFFFFFFFF', 3);
+insert into book(id, name, category_id) values(26, 'C_GGGGGGGGG', 3);
+insert into book(id, name, category_id) values(27, 'C_HHHHHHHHH', 3);
+insert into book(id, name, category_id) values(28, 'C_IIIIIIIII', 3);
+insert into book(id, name, category_id) values(29, 'C_LLLLLLLLL', 3);
+insert into book(id, name, category_id) values(30, 'C_MMMMMMMMM', 3);
+						 
+insert into book(id, name, category_id) values(31, 'D_BBBBBBBBB', 4);
+insert into book(id, name, category_id) values(32, 'D_CCCCCCCCC', 4);
+insert into book(id, name, category_id) values(33, 'D_DDDDDDDDD', 4);
+insert into book(id, name, category_id) values(34, 'D_EEEEEEEEE', 4);
+insert into book(id, name, category_id) values(35, 'D_FFFFFFFFF', 4);
+insert into book(id, name, category_id) values(36, 'D_GGGGGGGGG', 4);
+insert into book(id, name, category_id) values(37, 'D_HHHHHHHHH', 4);
+insert into book(id, name, category_id) values(38, 'D_IIIIIIIII', 4);
+insert into book(id, name, category_id) values(39, 'D_LLLLLLLLL', 4);
+insert into book(id, name, category_id) values(40, 'D_MMMMMMMMM', 4);
+						 
+insert into book(id, name, category_id) values(41, 'E_BBBBBBBBB', 5);
+insert into book(id, name, category_id) values(42, 'E_CCCCCCCCC', 5);
+insert into book(id, name, category_id) values(43, 'E_DDDDDDDDD', 5);
+insert into book(id, name, category_id) values(44, 'E_EEEEEEEEE', 5);
+insert into book(id, name, category_id) values(45, 'E_FFFFFFFFF', 5);
+insert into book(id, name, category_id) values(46, 'E_GGGGGGGGG', 5);
+insert into book(id, name, category_id) values(47, 'E_HHHHHHHHH', 5);
+insert into book(id, name, category_id) values(48, 'E_IIIIIIIII', 5);
+insert into book(id, name, category_id) values(49, 'E_LLLLLLLLL', 5);
+insert into book(id, name, category_id) values(50, 'E_MMMMMMMMM', 5);
