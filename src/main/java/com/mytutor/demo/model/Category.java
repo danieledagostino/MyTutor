@@ -29,9 +29,6 @@ public class Category implements Serializable {
 	@Column
 	private Integer copiesSold;
 	
-	@OneToMany(targetEntity = Book.class)
-	private Set<Book> books;
-
 	public Integer getId() {
 		return id;
 	}
@@ -54,14 +51,6 @@ public class Category implements Serializable {
 
 	public void setPrice(BigDecimal price) {
 		this.price = price;
-	}
-
-	public Set<Book> getBooks() {
-		return books;
-	}
-
-	public void setBooks(Set<Book> books) {
-		this.books = books;
 	}
 
 	public Integer getCopiesInStock() {
