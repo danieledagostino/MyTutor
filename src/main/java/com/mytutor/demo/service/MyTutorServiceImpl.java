@@ -56,6 +56,8 @@ public class MyTutorServiceImpl implements MyTutorService {
 				category.setCopiesInStock(category.getCopiesInStock() + moreCopies);
 			}
 			
+			repository.save(category);
+			
 			return stockOk;
 		}
 	}
@@ -73,14 +75,13 @@ public class MyTutorServiceImpl implements MyTutorService {
 		StringJoiner sj = new StringJoiner("\n");
 		
 		BigDecimal totalProfit = BigDecimal.ZERO;
-		BigDecimal catProfit = BigDecimal.ZERO;
 		int i = 1;
 		
 		for (CategoryProjection c : list) {
 			totalProfit = totalProfit.add(c.getCategoryProfit());
 			
 			sj.add(String.format("%d. Book %s | %s Copies Sold | £%.2f Total Profit", 
-					i++, c.getName(), c.getCopiesSold(), totalProfit));
+					i++, c.getName(), c.getCopiesSold(), c.getCategoryProfit()));
 		}
 		
 		StringJoiner head = new StringJoiner("\n");

@@ -2,6 +2,7 @@ package com.mytutor.service;
 
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertSame;
+import static org.junit.Assert.assertTrue;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import org.junit.jupiter.api.MethodOrderer.Alphanumeric;
@@ -26,22 +27,32 @@ public class MyTutorServiceTest {
 
 	@Autowired
 	MyTutorService service;
+	
+	@Value("${stock.out.of}")
+	private String outOfStock;
 
 	@Value("${stock.ok}")
 	private String stockOk;
 	
-	String B_report = "MyTutor Bookshop Balance: £0,00\r\n" + 
-			"1. Book A | 0 Copies Sold | £0,00 Total Profit\r\n" + 
-			"2. Book B | 0 Copies Sold | £0,00 Total Profit\r\n" + 
-			"3. Book C | 0 Copies Sold | £0,00 Total Profit\r\n" + 
-			"4. Book D | 0 Copies Sold | £0,00 Total Profit\r\n" + 
+	String B_report = "MyTutor Bookshop Balance: £0,00\n" + 
+			"1. Book A | 0 Copies Sold | £0,00 Total Profit\n" + 
+			"2. Book B | 0 Copies Sold | £0,00 Total Profit\n" + 
+			"3. Book C | 0 Copies Sold | £0,00 Total Profit\n" + 
+			"4. Book D | 0 Copies Sold | £0,00 Total Profit\n" + 
 			"5. Book E | 0 Copies Sold | £0,00 Total Profit";
 	
-	String F_report = "MyTutor Bookshop Balance: £0,00\r\n" + 
-			"1. Book B | 10 Copies Sold | £60,00 Total Profit\r\n" + 
-			"2. Book C | 5 Copies Sold | £34,50 Total Profit\r\n" + 
-			"3. Book A | 1 Copies Sold | £7,50 Total Profit\r\n" + 
-			"4. Book D | 0 Copies Sold | £0,00 Total Profit\r\n" + 
+	String F_report = "MyTutor Bookshop Balance: £102,00\n" + 
+			"1. Book B | 10 Copies Sold | £60,00 Total Profit\n" + 
+			"2. Book C | 5 Copies Sold | £34,50 Total Profit\n" + 
+			"3. Book A | 1 Copies Sold | £7,50 Total Profit\n" + 
+			"4. Book D | 0 Copies Sold | £0,00 Total Profit\n" + 
+			"5. Book E | 0 Copies Sold | £0,00 Total Profit";
+	
+	String I_report = "MyTutor Bookshop Balance: £147,00\n" + 
+			"1. Book B | 10 Copies Sold | £60,00 Total Profit\n" + 
+			"2. Book D | 5 Copies Sold | £45,00 Total Profit\n" + 
+			"3. Book C | 5 Copies Sold | £34,50 Total Profit\n" + 
+			"4. Book A | 1 Copies Sold | £7,50 Total Profit\n" + 
 			"5. Book E | 0 Copies Sold | £0,00 Total Profit";
 
 	@Test
@@ -54,7 +65,7 @@ public class MyTutorServiceTest {
 
 		String result = service.report();
 
-		Assert.hasText(result, B_report);
+		assertTrue(result.equals(B_report));
 	}
 
 	@Test
@@ -68,7 +79,7 @@ public class MyTutorServiceTest {
 	@Test
 	public void D_purchase_B_10q() {
 
-		String result = service.purchase("A", 1);
+		String result = service.purchase("B", 10);
 
 		assertEquals(result, stockOk);
 	}
@@ -76,7 +87,7 @@ public class MyTutorServiceTest {
 	@Test
 	public void E_purchase_C_5q() {
 
-		String result = service.purchase("B", 5);
+		String result = service.purchase("C", 5);
 
 		assertEquals(result, stockOk);
 	}
@@ -86,7 +97,31 @@ public class MyTutorServiceTest {
 
 		String result = service.report();
 
-		Assert.hasText(result, F_report);
+		assertTrue(result.equals(F_report));
+	}
+	
+	@Test
+	public void G_purchase_quantity_not_available() {
+
+		String result = service.purchase("C", 10);
+
+		assertEquals(result, outOfStock);
+	}
+	
+	@Test
+	public void H_purchase_D_5q() {
+
+		String result = service.purchase("D", 5);
+
+		Assert.hasText(result, outOfStock);
+	}
+	
+	@Test
+	public void I_3rd_report() {
+
+		String result = service.report();
+
+		assertTrue(result.equals(I_report));
 	}
 
 }

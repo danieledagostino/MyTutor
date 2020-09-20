@@ -19,7 +19,7 @@ public interface CategoryRepository extends JpaRepository<Category, Integer>{
 	
 	@Query(value = "select c.name as name, c.copiesSold as copiesSold, c.price as price, "
 			+ "((copiesSold * price) - ((copiesSold * price) * :supplierPrice)) as categoryProfit from Category c "
-			+ "order by c.copiesSold, categoryProfit")
+			+ "order by c.copiesSold desc, categoryProfit desc")
 	List<CategoryProjection> report(@Param("supplierPrice") BigDecimal supplierPrice);
 	
 }
