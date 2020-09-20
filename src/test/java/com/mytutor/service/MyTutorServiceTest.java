@@ -30,10 +30,17 @@ public class MyTutorServiceTest {
 	@Value("${stock.ok}")
 	private String stockOk;
 	
-	String firstReport = "MyTutor Bookshop Balance: £0,00\r\n" + 
+	String B_report = "MyTutor Bookshop Balance: £0,00\r\n" + 
 			"1. Book A | 0 Copies Sold | £0,00 Total Profit\r\n" + 
 			"2. Book B | 0 Copies Sold | £0,00 Total Profit\r\n" + 
 			"3. Book C | 0 Copies Sold | £0,00 Total Profit\r\n" + 
+			"4. Book D | 0 Copies Sold | £0,00 Total Profit\r\n" + 
+			"5. Book E | 0 Copies Sold | £0,00 Total Profit";
+	
+	String F_report = "MyTutor Bookshop Balance: £0,00\r\n" + 
+			"1. Book B | 10 Copies Sold | £60,00 Total Profit\r\n" + 
+			"2. Book C | 5 Copies Sold | £34,50 Total Profit\r\n" + 
+			"3. Book A | 1 Copies Sold | £7,50 Total Profit\r\n" + 
 			"4. Book D | 0 Copies Sold | £0,00 Total Profit\r\n" + 
 			"5. Book E | 0 Copies Sold | £0,00 Total Profit";
 
@@ -47,7 +54,7 @@ public class MyTutorServiceTest {
 
 		String result = service.report();
 
-		Assert.hasText(result, firstReport);
+		Assert.hasText(result, B_report);
 	}
 
 	@Test
@@ -64,6 +71,22 @@ public class MyTutorServiceTest {
 		String result = service.purchase("A", 1);
 
 		assertEquals(result, stockOk);
+	}
+	
+	@Test
+	public void E_purchase_C_5q() {
+
+		String result = service.purchase("B", 5);
+
+		assertEquals(result, stockOk);
+	}
+	
+	@Test
+	public void F_2nd_report() {
+
+		String result = service.report();
+
+		Assert.hasText(result, F_report);
 	}
 
 }
